@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Enemy : Actor
 {
+    [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private int xpOnKill;
     [SerializeField] private BulletAction[] bulletActions;
-    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private GameObject deathEffect;
 
     private void Start()
     {
@@ -20,7 +22,7 @@ public class Enemy : Actor
 
     private IEnumerator _BulletLoop()
     {
-        while (true)
+        while (alive)
         {
             for (int i = 0; i < bulletActions.Length; i++)
             {
@@ -46,15 +48,18 @@ public class Enemy : Actor
         audioSource.PlayOneShot(shootSound);
     }
 
-    public override int GetDamage(int actionIndex)
+    public override float GetDamage(int actionIndex)
     {
         return bulletActions[actionIndex].damage;
     }
 
     protected override void Die()
     {
+        audioSource.PlayOneShot(deathSound);
         GameManager.LevelSystem.GainXP(xpOnKill);
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
         base.Die();
+        Destroy(gameObject, 3f);
     }
 
     protected override Vector2 GetFacingDir()
@@ -71,7 +76,7 @@ public class Enemy : Actor
         public float angle = 0f;
         public float spawnOffset = 0.6f;
         public float speed = 1f;
-        public int damage = 1;
+        public float damage = 1;
         public bool useFacingDir = false;
     }
 }

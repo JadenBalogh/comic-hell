@@ -147,56 +147,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf0898fa3cc665449e99f245609d927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.2
   opponentLayer:
     serializedVersion: 2
     m_Bits: 64
-  baseMaxHealth: 10
+  baseMaxHealth: 12
+  hurtSound: {fileID: 8300000, guid: 52840b3917a1e414196a2d4cd47c5f5d, type: 3}
+  shootSound: {fileID: 8300000, guid: cca3c20747dcb5e4e97c34e56233a150, type: 3}
+  moveSpeed: 1.2
   xpOnKill: 30
   bulletActions:
-  - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
+  - prefab: {fileID: 7096616856700266471, guid: 633831bf4b481f54ebb74a88f2093b20, type: 3}
     duration: 0.3
     angle: 0
     spawnOffset: 0.6
     speed: 3
     damage: 2
     useFacingDir: 0
-  - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
+  - prefab: {fileID: 7096616856700266471, guid: 633831bf4b481f54ebb74a88f2093b20, type: 3}
     duration: 0.3
     angle: 60
     spawnOffset: 0.6
     speed: 3
     damage: 2
     useFacingDir: 0
-  - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
+  - prefab: {fileID: 7096616856700266471, guid: 633831bf4b481f54ebb74a88f2093b20, type: 3}
     duration: 0.3
     angle: 120
     spawnOffset: 0.6
     speed: 3
     damage: 2
     useFacingDir: 0
-  - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
+  - prefab: {fileID: 7096616856700266471, guid: 633831bf4b481f54ebb74a88f2093b20, type: 3}
     duration: 0.3
     angle: 180
     spawnOffset: 0.6
     speed: 3
     damage: 2
     useFacingDir: 0
-  - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
+  - prefab: {fileID: 7096616856700266471, guid: 633831bf4b481f54ebb74a88f2093b20, type: 3}
     duration: 0.3
     angle: 240
     spawnOffset: 0.6
     speed: 3
     damage: 2
     useFacingDir: 0
-  - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
+  - prefab: {fileID: 7096616856700266471, guid: 633831bf4b481f54ebb74a88f2093b20, type: 3}
     duration: 0.3
     angle: 300
     spawnOffset: 0.6
     speed: 3
     damage: 2
     useFacingDir: 0
-  shootSound: {fileID: 8300000, guid: cca3c20747dcb5e4e97c34e56233a150, type: 3}
+  deathSound: {fileID: 8300000, guid: 392c9dcf0738e684ea21db844206b904, type: 3}
+  deathEffect: {fileID: 6574378492946449608, guid: 807bb37e0d02b0d46b516d3f11f2c7a1, type: 3}
 --- !u!82 &-846083453781895188
 AudioSource:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ AudioSource:
   m_GameObject: {fileID: 6043849233602253954}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 93ab6ee3ee1a6644685304075f0a9613, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

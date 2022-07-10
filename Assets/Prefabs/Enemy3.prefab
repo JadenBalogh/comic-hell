@@ -147,11 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf0898fa3cc665449e99f245609d927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.8
   opponentLayer:
     serializedVersion: 2
     m_Bits: 64
-  baseMaxHealth: 16
+  baseMaxHealth: 8
+  hurtSound: {fileID: 8300000, guid: 52840b3917a1e414196a2d4cd47c5f5d, type: 3}
+  shootSound: {fileID: 8300000, guid: 47bedbdf4a34e9d4d89d4dc6e3aaac4a, type: 3}
+  moveSpeed: 1.8
   xpOnKill: 40
   bulletActions:
   - prefab: {fileID: 7096616856700266471, guid: ec080a3bdb0cfde469e17fa7dc2afd7b, type: 3}
@@ -196,7 +198,8 @@ MonoBehaviour:
     speed: 6
     damage: 1
     useFacingDir: 1
-  shootSound: {fileID: 8300000, guid: 47bedbdf4a34e9d4d89d4dc6e3aaac4a, type: 3}
+  deathSound: {fileID: 8300000, guid: 392c9dcf0738e684ea21db844206b904, type: 3}
+  deathEffect: {fileID: 6574378492946449608, guid: 807bb37e0d02b0d46b516d3f11f2c7a1, type: 3}
 --- !u!82 &1444748538416520588
 AudioSource:
   m_ObjectHideFlags: 0
@@ -206,7 +209,7 @@ AudioSource:
   m_GameObject: {fileID: 9115400621918364781}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 93ab6ee3ee1a6644685304075f0a9613, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7096616856700266471}
   - component: {fileID: 384126780096507036}
   m_Layer: 7
-  m_Name: EnemyBullet
+  m_Name: EnemyBulletBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0cb66595bbbabdd4bada237e5e72e069, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f292317108822404393a20a2adeae34e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 0.14
 --- !u!50 &7096616856700266472
 Rigidbody2D:
   serializedVersion: 4
@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a35e90037b8ab4b8c626e66cdb4f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifetime: 10

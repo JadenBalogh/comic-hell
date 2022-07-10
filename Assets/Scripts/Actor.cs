@@ -4,20 +4,30 @@ using UnityEngine;
 
 public abstract class Actor : MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 3f;
     [SerializeField] protected LayerMask opponentLayer;
-    [SerializeField] protected int baseMaxHealth = 10;
+    [SerializeField] protected float baseMaxHealth = 10;
+    [SerializeField] protected AudioClip hurtSound;
+    [SerializeField] protected AudioClip shootSound;
 
-    private int health;
+    public int MaxHealth { get => (int)baseMaxHealth; }
 
+    protected float maxHealth;
+    protected float health;
+    protected bool alive = true;
+
+    protected new Collider2D collider2D;
     protected new Rigidbody2D rigidbody2D;
+    protected SpriteRenderer spriteRenderer;
     protected AudioSource audioSource;
 
     protected virtual void Awake()
     {
+        collider2D = GetComponent<Collider2D>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
 
+        maxHealth = baseMaxHealth;
         health = baseMaxHealth;
     }
 
@@ -38,13 +48,20 @@ public abstract class Actor : MonoBehaviour
         }
     }
 
-    public abstract int GetDamage(int actionIndex);
+    public abstract float GetDamage(int actionIndex);
+
+    public virtual void UpgradeMaxHealth(float mult)
+    {
+        maxHealth = baseMaxHealth * mult;
+        health = maxHealth;
+    }
 
     public virtual void TakeDamage(Actor source, int actionIndex)
     {
-        int damage = source.GetDamage(actionIndex);
+        float damage = source.GetDamage(actionIndex);
         health -= damage;
-        if (health <= 0)
+        audioSource.PlayOneShot(hurtSound);
+        if (health <= 0f && alive)
         {
             Die();
         }
@@ -52,8 +69,11 @@ public abstract class Actor : MonoBehaviour
 
     protected virtual void Die()
     {
-        // TODO: spawn death effect
-        Destroy(gameObject);
+        alive = false;
+        rigidbody2D.velocity = Vector2.zero;
+        collider2D.enabled = false;
+        spriteRenderer.enabled = false;
+        enabled = false;
     }
 
     protected abstract Vector2 GetFacingDir();
